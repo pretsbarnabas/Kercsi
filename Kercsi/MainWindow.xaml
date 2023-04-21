@@ -5,27 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kercsi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
-    <Grid Width="500" Height="500" Name="MainTable">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel x:Name="stackpanel_inventory" Margin="0,0,661,1">
+            <WrapPanel>
+                <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="{Binding Wood}"></Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="{Binding Clay}"></Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="{Binding Metal}"></Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="{Binding Treasure}"></Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="{Binding Shovel}"></Label>
+            </WrapPanel>
+            <WrapPanel>
+                <Label Content="Road:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label Content="{Binding Road}"></Label>
+            </WrapPanel>
+        </StackPanel>
+        <StackPanel x:Name="stackpanel_crafting" Margin="629,0,0,0">
+            <Button IsEnabled="{Binding CraftRoadIsActive}" x:Name="btn_craftroad" Content="Craft Road" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Width="68" Click="btn_craftroad_Click"/>
+            <Button IsEnabled="{Binding CraftShovelIsActive}" x:Name="btn_craftshovel" Content="Craft Shovel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, 120, 0, 0" Click="btn_craftshovel_Click"/>
+        </StackPanel>
+
     </Grid>
 </Window>

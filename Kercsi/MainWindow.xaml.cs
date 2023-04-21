@@ -20,12 +20,22 @@ namespace Kercsi
     /// </summary>
     public partial class MainWindow : Window
     {
-
-        Table mainTable;
+        Inventory inventory = new Inventory();
         public MainWindow()
         {
             InitializeComponent();
-            mainTable = new();
+            stackpanel_inventory.DataContext = inventory;
+            stackpanel_crafting.DataContext = inventory;
+        }
+
+        private void btn_craftroad_Click(object sender, RoutedEventArgs e)
+        {
+            inventory.CraftRoad();
+        }
+
+        private void btn_craftshovel_Click(object sender, RoutedEventArgs e)
+        {
+            inventory.CraftShovel();
         }
     }
 }

@@ -17,10 +17,12 @@ namespace Kercsi
     internal class Table
     {
         TileValue[,] tileValues = new TileValue[8, 8];
+        int[] playerPositionIndex = new int[2];
 
         public Table()
         {
             Random rnd = new();
+            playerPositionIndex = new int[2];
             for (int y = 0; y < 8; y++)
             {
                 for (int x = 0; x < 8; x++)
@@ -41,7 +43,6 @@ namespace Kercsi
                     {
                         tileValues[y, x] = (TileValue)(newRand - 3);
                     }
-
                 }
             }
         }
