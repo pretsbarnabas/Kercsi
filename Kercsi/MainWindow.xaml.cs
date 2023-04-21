@@ -40,6 +40,24 @@ namespace Kercsi
         {
             dice.Roll(); 
             //Return-ol egy intet   (lbl_Dice.Content = Roll())
+
+        Table mainTable;
+        Inventory inventory = new Inventory();
+        public MainWindow()
+        {
+            InitializeComponent();
+            stackpanel_inventory.DataContext = inventory;
+            stackpanel_crafting.DataContext = inventory;
+        }
+
+        private void btn_craftroad_Click(object sender, RoutedEventArgs e)
+        {
+            inventory.CraftRoad();
+        }
+
+        private void btn_craftshovel_Click(object sender, RoutedEventArgs e)
+        {
+            inventory.CraftShovel();
         }
     }
 }
