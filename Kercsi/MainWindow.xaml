@@ -66,6 +66,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            <Image Source="img/macsk.png" Grid.Column="0" Grid.Row="0" Panel.ZIndex="3" x:Name="img_player"></Image>
         </Grid>
         <Grid Grid.Column="2" x:Name="Gr_crafting">
             <Grid.RowDefinitions>
@@ -86,14 +87,14 @@
             </Grid>
             <StackPanel x:Name="stackpanel_crafting" Grid.Row="1">
                 <StackPanel.Resources>
-                    <ImageBrush x:Key="ButtonBackground" ImageSource="/buttonbg.png" Stretch="UniformToFill"/>
+                    <ImageBrush x:Key="ButtonBackground" ImageSource="img/buttonbg.png" Stretch="UniformToFill"/>
                 </StackPanel.Resources>
                 <StackPanel Orientation="horizontal">
-                    <Image Source="/rail.png" Height="120"></Image>
+                    <Image Source="img/rail.png" Height="120"></Image>
                     <Button IsEnabled="{Binding CraftRoadIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftroad" Content="Asd" BorderBrush="Transparent"  Margin="20,0,0,0" HorizontalAlignment="Left" Height="120" Width="350" VerticalAlignment="Top" Click="btn_craftroad_Click"/>
                 </StackPanel>
                 <StackPanel Orientation="horizontal">
-                    <Image Source="/shovel.png" Height="120"></Image>
+                    <Image Source="img/shovel.png" Height="120"></Image>
                     <Button IsEnabled="{Binding CraftShovelIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftshovel" Content="Craft Shovel" Margin="20,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_craftshovel_Click"/>
                 </StackPanel>
             </StackPanel>

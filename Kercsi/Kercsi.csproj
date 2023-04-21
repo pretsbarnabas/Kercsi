@@ -7,4 +7,61 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="buttonbg.png" />
+    <None Remove="img\buttonbg.png" />
+    <None Remove="img\clayball.png" />
+    <None Remove="img\claydomb.png" />
+    <None Remove="img\diamond.png" />
+    <None Remove="img\hegy xd.png" />
+    <None Remove="img\Iron_Ingot.png" />
+    <None Remove="img\macsk.png" />
+    <None Remove="img\rail.png" />
+    <None Remove="img\ret.png" />
+    <None Remove="img\sand.jpg" />
+    <None Remove="img\shovel.png" />
+    <None Remove="img\wood.png" />
+    <None Remove="macjks.png" />
+    <None Remove="rail.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\buttonbg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\clayball.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\claydomb.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\diamond.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\hegy xd.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\Iron_Ingot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\macsk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\rail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\ret.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\sand.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\shovel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\wood.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>
