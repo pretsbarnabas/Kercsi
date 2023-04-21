@@ -20,9 +20,26 @@ namespace Kercsi
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Dice
+        private static Rectangle diceOnBoard;
+        public static Rectangle DiceOnBoard
+        {
+            get { return diceOnBoard; }
+            set { diceOnBoard = value; }
+        }
+        Dice dice = new Dice();
+        #endregion
+
         public MainWindow()
         {
             InitializeComponent();
+            //diceOnBoard = Rt_Dice;
+        }
+
+        private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            dice.Roll(); 
+            //Return-ol egy intet   (lbl_Dice.Content = Roll())
         }
     }
 }
