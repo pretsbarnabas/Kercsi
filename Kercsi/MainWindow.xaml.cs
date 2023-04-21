@@ -25,6 +25,17 @@ namespace Kercsi
         {
             InitializeComponent();
             stackpanel_inventory.DataContext = inventory;
+            stackpanel_crafting.DataContext = inventory;
+        }
+
+        private void btn_craftroad_Click(object sender, RoutedEventArgs e)
+        {
+            inventory.CraftRoad();
+        }
+
+        private void btn_craftshovel_Click(object sender, RoutedEventArgs e)
+        {
+            inventory.CraftShovel();
         }
     }
 }
