@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Converters;
@@ -18,7 +19,7 @@ namespace Kercsi
         public int Mead { get; set; }
         public int Sand { get; set; }
 
-        public int Roll()
+        public string Roll()
         {
             int rand = random.Next(6) + 1;
             string imagePath = $"Images/Dice/{rand}.png";
@@ -30,7 +31,28 @@ namespace Kercsi
             ImageSource imageSource = bitmap;
             ib.ImageSource = imageSource;
             MainWindow.DiceOnBoard.Fill = ib;
-            return rand;
+
+            if (rand == Mountain)
+            {
+                return "Mountain";
+            }
+            else if (rand == Hill)
+            {
+                return "Hill";
+            }
+            else if (rand == Mead)
+            {
+                return "Meadow";
+            }
+            else if (rand == Sand)
+            {
+                return "Sand";
+            }
+            else
+            {
+                return "Forest";
+            }
+
         }
 
         public Dice()

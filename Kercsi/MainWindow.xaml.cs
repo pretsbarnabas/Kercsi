@@ -35,6 +35,8 @@ namespace Kercsi
         {
             InitializeComponent();
             //diceOnBoard = Rt_Dice;
+            stackpanel_inventory.DataContext = inventory;
+            stackpanel_crafting.DataContext = inventory;
             mainTable = new();
             stackpanel_inventory.DataContext = mainTable.inventory;
             stackpanel_crafting.DataContext = mainTable.inventory;
@@ -53,7 +55,24 @@ namespace Kercsi
 
         private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            dice.Roll();
+            string tile = dice.Roll();
+            switch (tile)
+            {
+                case("Mountain"):
+                    metal.Content = int.Parse(metal.Content.ToString()) + 1;
+                    break;
+                case ("Hill"):
+                    clay.Content = int.Parse(clay.Content.ToString()) + 1;
+                    break;
+                case ("Meadow"):
+                    break;
+                case ("Sand"):
+                    break;
+                case ("Forest"):
+                    wood.Content = int.Parse(wood.Content.ToString()) + 1;
+                    break;
+            }
+        }
             //Return-ol egy intet   (lbl_Dice.Content = Roll())
         }
 
