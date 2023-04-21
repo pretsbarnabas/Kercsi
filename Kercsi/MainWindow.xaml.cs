@@ -38,6 +38,8 @@ namespace Kercsi
             //diceOnBoard = Rt_Dice;
             stackpanel_inventory.DataContext = inventory;
             stackpanel_crafting.DataContext = inventory;
+            mainTable = new();
+            FillGrid();
         }
 
         private void btn_craftroad_Click(object sender, RoutedEventArgs e)
@@ -54,8 +56,7 @@ namespace Kercsi
         {
             dice.Roll();
             //Return-ol egy intet   (lbl_Dice.Content = Roll())
-            mainTable = new();
-            FillGrid();
+
             
 
         }
