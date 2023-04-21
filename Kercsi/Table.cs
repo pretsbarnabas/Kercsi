@@ -16,7 +16,7 @@ namespace Kercsi
 
     internal class Table
     {
-        TileValue[,] tileValues = new TileValue[8, 8];
+        public TileValue[,] tileValues = new TileValue[8, 8];
 
         public Table()
         {
