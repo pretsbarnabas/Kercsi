@@ -5,59 +5,88 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kercsi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1080">
+       WindowStyle="None" Height="1080" Width="1920" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary Source="Styles.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        <StackPanel x:Name="stackpanel_inventory" Margin="0,0,661,1">
-            <WrapPanel>
-                <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label Content="{Binding Wood}"></Label>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label Content="{Binding Clay}"></Label>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label Content="{Binding Metal}"></Label>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label Content="{Binding Treasure}"></Label>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label Content="{Binding Shovel}"></Label>
-            </WrapPanel>
-            <WrapPanel>
-                <Label Content="Road:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Label Content="{Binding Road}"></Label>
-            </WrapPanel>
-        </StackPanel>
-        <StackPanel x:Name="stackpanel_crafting" Margin="905,0,0,0">
-            <Button IsEnabled="{Binding CraftRoadIsActive}" x:Name="btn_craftroad" Content="Craft Road" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Width="68" Click="btn_craftroad_Click"/>
-            <Button IsEnabled="{Binding CraftShovelIsActive}" x:Name="btn_craftshovel" Content="Craft Shovel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, 120, 0, 0" Click="btn_craftshovel_Click"/>
-        </StackPanel>
-        <Grid Width="500" Height="500" Name="MainTable">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="Resources">
+            <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" >
+                <WrapPanel>
+                    <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="{Binding Wood}"></Label>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="{Binding Clay}"></Label>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="{Binding Metal}"></Label>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="{Binding Treasure}"></Label>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="{Binding Shovel}"></Label>
+                </WrapPanel>
+                <WrapPanel>
+                    <Label Content="Road:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Content="{Binding Road}"></Label>
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1" x:Name="Gr_Table">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="2" x:Name="Gr_crafting">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid x:Name="Gr_craftingTable">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <StackPanel x:Name="stackpanel_crafting" Grid.Row="1">
+                <Button IsEnabled="{Binding CraftRoadIsActive}" x:Name="btn_craftroad" Content="Craft Road" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Width="68" Click="btn_craftroad_Click"/>
+                <Button IsEnabled="{Binding CraftShovelIsActive}" x:Name="btn_craftshovel" Content="Craft Shovel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, 120, 0, 0" Click="btn_craftshovel_Click"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

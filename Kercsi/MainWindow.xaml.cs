@@ -20,49 +20,26 @@ namespace Kercsi
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Dice
+        private static Rectangle diceOnBoard;
+        public static Rectangle DiceOnBoard
+        {
+            get { return diceOnBoard; }
+            set { diceOnBoard = value; }
+        }
+        Dice dice = new Dice();
+        #endregion
 
         Table mainTable;
+        Inventory inventory = new Inventory();
         public MainWindow()
         {
             InitializeComponent();
+            //diceOnBoard = Rt_Dice;
             stackpanel_inventory.DataContext = inventory;
             stackpanel_crafting.DataContext = inventory;
-            mainTable = new Table();
+            mainTable = new();
             FillGrid();
-        }
-
-        private void FillGrid()
-        {
-            for (int y = 0; y < 8; y++)
-            {
-                for (int x = 0; x < 8; x++)
-                {
-                    Label newBtn = new();
-                    newBtn.Content = (int)mainTable.tileValues[y, x];
-                    newBtn.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
-                    Grid.SetColumn(newBtn, x);
-                    Grid.SetRow(newBtn, y);
-
-                    MainTable.Children.Add(newBtn);
-                }
-            }
-        }
-
-        private void Move(object sender, MouseButtonEventArgs e)
-        {
-            Label lbl = sender as Label;
-            int[] lblCoords = { Grid.GetColumn(lbl), Grid.GetRow(lbl) };
-            
-            if (Math.Abs(lblCoords[0] - mainTable.playerPositionIndex[0]) <= 1)
-            {
-                if (Math.Abs(lblCoords[1] - mainTable.playerPositionIndex[1]) <= 1)
-                {
-                    if ((lblCoords[1] - mainTable.playerPositionIndex[1]) * (lblCoords[0] - mainTable.playerPositionIndex[0]) == 0)
-                    {
-
-                    }
-                }
-            }
         }
 
         private void btn_craftroad_Click(object sender, RoutedEventArgs e)
@@ -73,6 +50,65 @@ namespace Kercsi
         private void btn_craftshovel_Click(object sender, RoutedEventArgs e)
         {
             inventory.CraftShovel();
+        }
+
+        private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            dice.Roll();
+            //Return-ol egy intet   (lbl_Dice.Content = Roll())
+
+            
+
+        }
+        public void FillGrid()
+        {
+            for (int y = 0; y < 8; y++)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    if (mainTable.tileValues[y, x].ToString() == "Forest")
+                    {
+                        Image image = new Image();
+                        image.Source = new BitmapImage(new Uri("/wood.png", UriKind.Relative));
+                        Grid.SetRow(image, x);
+                        Grid.SetColumn(image, y);
+                        Gr_Table.Children.Add(image);
+                    }
+                    else if (mainTable.tileValues[y, x].ToString() == "Meadow")
+                    {
+                        Image image = new Image();
+                        image.Source = new BitmapImage(new Uri("/ret.png", UriKind.Relative));
+                        Grid.SetRow(image, x);
+                        Grid.SetColumn(image, y);
+                        Gr_Table.Children.Add(image);
+                    }
+                    else if (mainTable.tileValues[y, x].ToString() == "Mountain")
+                    {
+                        Image image = new Image();
+                        image.Source = new BitmapImage(new Uri("/hegy xd.png", UriKind.Relative));
+                        Grid.SetRow(image, x);
+                        Grid.SetColumn(image, y);
+                        Gr_Table.Children.Add(image);
+                    }
+                    else if (mainTable.tileValues[y, x].ToString() == "Hill")
+                    {
+                        Image image = new Image();
+                        image.Source = new BitmapImage(new Uri("/claydomb.png", UriKind.Relative));
+                        Grid.SetRow(image, x);
+                        Grid.SetColumn(image, y);
+                        Gr_Table.Children.Add(image);
+                    }
+                    else if (mainTable.tileValues[y, x].ToString() == "None")
+                    {
+
+                        Image image = new Image();
+                        image.Source = new BitmapImage(new Uri("/sand.jpg", UriKind.Relative));
+                        Grid.SetRow(image, x);
+                        Grid.SetColumn(image, y);
+                        Gr_Table.Children.Add(image);
+                    }
+                }
+            }
         }
     }
 }
