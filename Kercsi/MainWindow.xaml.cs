@@ -20,6 +20,8 @@ namespace Kercsi
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        Table mainTable;
         Inventory inventory = new Inventory();
         public MainWindow()
         {
