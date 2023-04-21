@@ -91,7 +91,7 @@
                 </StackPanel.Resources>
                 <StackPanel Orientation="horizontal">
                     <Image Source="img/rail.png" Height="120"></Image>
-                    <Button IsEnabled="{Binding CraftRoadIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftroad" Content="Asd" BorderBrush="Transparent"  Margin="20,0,0,0" HorizontalAlignment="Left" Height="120" Width="350" VerticalAlignment="Top" Click="btn_craftroad_Click"/>
+                    <Button IsEnabled="{Binding CraftRoadIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftroad" Content="Craft Rail" BorderBrush="Transparent"  Margin="20,0,0,0" HorizontalAlignment="Left" Height="120" Width="350" VerticalAlignment="Top" Click="btn_craftroad_Click"/>
                 </StackPanel>
                 <StackPanel Orientation="horizontal">
                     <Image Source="img/shovel.png" Height="120"></Image>
