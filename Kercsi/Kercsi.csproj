@@ -8,10 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="buttonbg.png" />
     <None Remove="clayball.png" />
     <None Remove="claydomb.png" />
     <None Remove="diamond.png" />
     <None Remove="hegy xd.png" />
+    <None Remove="img\buttonbg.png" />
+    <None Remove="img\clayball.png" />
+    <None Remove="img\claydomb.png" />
+    <None Remove="img\diamond.png" />
+    <None Remove="img\hegy xd.png" />
+    <None Remove="img\Iron_Ingot.png" />
+    <None Remove="img\rail.png" />
+    <None Remove="img\ret.png" />
+    <None Remove="img\sand.jpg" />
+    <None Remove="img\shovel.png" />
+    <None Remove="img\wood.png" />
     <None Remove="Iron_Ingot.png" />
     <None Remove="rail.png" />
     <None Remove="ret.png" />
@@ -21,16 +33,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="clayball.png" />
-    <Resource Include="claydomb.png" />
-    <Resource Include="diamond.png" />
+    <Resource Include="buttonbg.png" />
     <Resource Include="hegy xd.png" />
-    <Resource Include="Iron_Ingot.png" />
+    <Resource Include="img\buttonbg.png" />
+    <Resource Include="img\clayball.png" />
+    <Resource Include="img\claydomb.png" />
+    <Resource Include="img\diamond.png" />
+    <Resource Include="img\hegy xd.png" />
+    <Resource Include="img\Iron_Ingot.png" />
+    <Resource Include="img\rail.png" />
+    <Resource Include="img\ret.png" />
+    <Resource Include="img\sand.jpg" />
+    <Resource Include="img\shovel.png" />
+    <Resource Include="img\wood.png" />
     <Resource Include="rail.png" />
-    <Resource Include="ret.png" />
-    <Resource Include="sand.jpg" />
     <Resource Include="shovel.png" />
-    <Resource Include="wood.png" />
   </ItemGroup>
 
 </Project>

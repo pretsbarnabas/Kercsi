@@ -84,8 +84,17 @@
                 </Grid.ColumnDefinitions>
             </Grid>
             <StackPanel x:Name="stackpanel_crafting" Grid.Row="1">
-                <Button IsEnabled="{Binding CraftRoadIsActive}" x:Name="btn_craftroad" Content="Craft Road" HorizontalAlignment="Left" Margin="50,100,0,0" VerticalAlignment="Top" Width="68" Click="btn_craftroad_Click"/>
-                <Button IsEnabled="{Binding CraftShovelIsActive}" x:Name="btn_craftshovel" Content="Craft Shovel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50, 120, 0, 0" Click="btn_craftshovel_Click"/>
+                <StackPanel.Resources>
+                    <ImageBrush x:Key="ButtonBackground" ImageSource="/buttonbg.png" Stretch="UniformToFill"/>
+                </StackPanel.Resources>
+                <StackPanel Orientation="horizontal"> 
+                    <Image Source="/rail.png" Height="120"></Image>
+                    <Button IsEnabled="{Binding CraftRoadIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftroad" Content="Asd" BorderBrush="Transparent"  Margin="20,0,0,0" HorizontalAlignment="Left" Height="120" Width="350" VerticalAlignment="Top" Click="btn_craftroad_Click"/>
+               </StackPanel>
+                <StackPanel Orientation="horizontal">
+                    <Image Source="/shovel.png" Height="120"></Image>
+                    <Button IsEnabled="{Binding CraftShovelIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftshovel" Content="Craft Shovel" Margin="20,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_craftshovel_Click"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>
