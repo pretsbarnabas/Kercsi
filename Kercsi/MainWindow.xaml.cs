@@ -35,7 +35,7 @@ namespace Kercsi
         public MainWindow()
         {
             InitializeComponent();
-            //diceOnBoard = Rt_Dice;
+            diceOnBoard = Rt_Dice;
             stackpanel_inventory.DataContext = inventory;
             stackpanel_crafting.DataContext = inventory;
             mainTable = new();
@@ -54,12 +54,25 @@ namespace Kercsi
 
         private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            dice.Roll();
-            //Return-ol egy intet   (lbl_Dice.Content = Roll())
-
-            
-
+            string tile = dice.Roll();
+            switch (tile)
+            {
+                case("Mountain"):
+                    metal.Content = int.Parse(metal.Content.ToString()) + 1;
+                    break;
+                case ("Hill"):
+                    clay.Content = int.Parse(clay.Content.ToString()) + 1;
+                    break;
+                case ("Meadow"):
+                    break;
+                case ("Sand"):
+                    break;
+                case ("Forest"):
+                    wood.Content = int.Parse(wood.Content.ToString()) + 1;
+                    break;
+            }
         }
+            //Return-ol egy intet   (lbl_Dice.Content = Roll())
         public void FillGrid()
         {
             for (int y = 0; y < 8; y++)

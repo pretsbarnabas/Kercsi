@@ -39,7 +39,7 @@ namespace Kercsi
                     }
                     else
                     {
-                        tileValues[y, x] = (TileValue)(newRand - 3);
+                        tileValues[y, x] = (TileValue)(newRand - 2);
                     }
 
                 }

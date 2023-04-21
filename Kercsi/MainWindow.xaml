@@ -15,23 +15,25 @@
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
+        <Rectangle Height="100" Fill="AntiqueWhite" Stroke="Black" Width="100" x:Name="Rt_Dice" MouseDown="Rt_Dice_MouseDown"/>
         <Grid x:Name="Resources">
-            <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" >
+            <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" Margin="0,0,0,714" >
                 <WrapPanel>
                     <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="{Binding Wood}"></Label>
+                    <Label x:Name="wood" Content="{Binding Wood}"></Label>
                 </WrapPanel>
                 <WrapPanel>
                     <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="{Binding Clay}"></Label>
+                    <Label x:Name="clay" Content="{Binding Clay}"></Label>
                 </WrapPanel>
                 <WrapPanel>
                     <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="{Binding Metal}"></Label>
+                    <Label x:Name="metal" Content="{Binding Metal}"></Label>
                 </WrapPanel>
                 <WrapPanel>
                     <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="{Binding Treasure}"></Label>
+                    <Label x:Name="treasure" Content="{Binding Treasure}"></Label>
                 </WrapPanel>
                 <WrapPanel>
                     <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
