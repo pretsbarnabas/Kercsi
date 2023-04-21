@@ -20,9 +20,11 @@ namespace Kercsi
     /// </summary>
     public partial class MainWindow : Window
     {
+        Inventory inventory = new Inventory();
         public MainWindow()
         {
             InitializeComponent();
+            stackpanel_inventory.DataContext = inventory;
         }
     }
 }
