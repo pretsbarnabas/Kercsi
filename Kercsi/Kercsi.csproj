@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="buttonbg.png" />
     <None Remove="clayball.png" />
     <None Remove="claydomb.png" />
     <None Remove="diamond.png" />
@@ -21,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="buttonbg.png" />
     <Resource Include="clayball.png" />
     <Resource Include="claydomb.png" />
     <Resource Include="diamond.png" />
