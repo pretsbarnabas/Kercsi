@@ -7,32 +7,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="buttonbg.png" />
-    <None Remove="clayball.png" />
-    <None Remove="claydomb.png" />
-    <None Remove="diamond.png" />
-    <None Remove="hegy xd.png" />
-    <None Remove="Iron_Ingot.png" />
-    <None Remove="rail.png" />
-    <None Remove="ret.png" />
-    <None Remove="sand.jpg" />
-    <None Remove="shovel.png" />
-    <None Remove="wood.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="buttonbg.png" />
-    <Resource Include="clayball.png" />
-    <Resource Include="claydomb.png" />
-    <Resource Include="diamond.png" />
-    <Resource Include="hegy xd.png" />
-    <Resource Include="Iron_Ingot.png" />
-    <Resource Include="rail.png" />
-    <Resource Include="ret.png" />
-    <Resource Include="sand.jpg" />
-    <Resource Include="shovel.png" />
-    <Resource Include="wood.png" />
-  </ItemGroup>
-
 </Project>
