@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Kercsi"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-    <Grid Width="500" Height="500">
+    <Grid Width="500" Height="500" Name="MainTable">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
