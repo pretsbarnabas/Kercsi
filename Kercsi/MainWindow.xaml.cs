@@ -35,9 +35,9 @@ namespace Kercsi
         {
             InitializeComponent();
             //diceOnBoard = Rt_Dice;
-            stackpanel_inventory.DataContext = inventory;
-            stackpanel_crafting.DataContext = inventory;
             mainTable = new();
+            stackpanel_inventory.DataContext = mainTable.inventory;
+            stackpanel_crafting.DataContext = mainTable.inventory;
             stackpanel_inventory.DataContext = mainTable.inventory;
             stackpanel_crafting.DataContext = mainTable.inventory;
             FillGrid();
@@ -74,7 +74,7 @@ namespace Kercsi
             }
         }
             //Return-ol egy intet   (lbl_Dice.Content = Roll())
-        }
+
 
         private void Move(object sender, MouseButtonEventArgs e)
         {
@@ -101,7 +101,7 @@ namespace Kercsi
             {
                 for (int x = 0; x < 8; x++)
                 {
-                    if (mainTable.tiles[y, x].ToString() == "Forest")
+                    if (mainTable.tiles[y, x].value.ToString() == "Forest")
                     {
                         Image image = new Image();
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
@@ -110,7 +110,7 @@ namespace Kercsi
                         Grid.SetColumn(image, y);
                         Gr_Table.Children.Add(image);
                     }
-                    else if (mainTable.tiles[y, x].ToString() == "Meadow")
+                    else if (mainTable.tiles[y, x].value.ToString() == "Meadow")
                     {
                         Image image = new Image();
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
@@ -119,7 +119,7 @@ namespace Kercsi
                         Grid.SetColumn(image, y);
                         Gr_Table.Children.Add(image);
                     }
-                    else if (mainTable.tiles[y, x].ToString() == "Mountain")
+                    else if (mainTable.tiles[y, x].value.ToString() == "Mountain")
                     {
                         Image image = new Image();
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
@@ -128,7 +128,7 @@ namespace Kercsi
                         Grid.SetColumn(image, y);
                         Gr_Table.Children.Add(image);
                     }
-                    else if (mainTable.tiles[y, x].ToString() == "Hill")
+                    else if (mainTable.tiles[y, x].value.ToString() == "Hill")
                     {
                         Image image = new Image();
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
@@ -137,7 +137,7 @@ namespace Kercsi
                         Grid.SetColumn(image, y);
                         Gr_Table.Children.Add(image);
                     }
-                    else if (mainTable.tiles[y, x].ToString() == "None")
+                    else if (mainTable.tiles[y, x].value.ToString() == "None")
                     {
                         Image image = new Image();
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);

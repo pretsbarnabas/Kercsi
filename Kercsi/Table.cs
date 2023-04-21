@@ -44,6 +44,7 @@ namespace Kercsi
                 for (int x = 0; x < 8; x++)
                 {
                     int newRand = rnd.Next(6);
+                    this.tiles[y, x] = new Tile();
                         
                     if ((y == 0 && x == 0) || (y == 7 && x == 7) || (y == 0 && x == 7) || (y == 7 && x == 0))
                     {
