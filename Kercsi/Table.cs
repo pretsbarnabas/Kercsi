@@ -14,11 +14,25 @@ namespace Kercsi
         None,
     }
 
+    public struct Road
+    {
+        public bool Left;
+        public bool Right;
+        public bool Up;
+        public bool Down;
+    }
+
+    public class Tile
+    {
+        public TileValue value;
+        public Road roads;
+    }
+
     internal class Table
     {
-        public TileValue[,] tileValues = new TileValue[8, 8];
+        public Tile[,] tiles = new Tile[8, 8];
         public int[] playerPositionIndex = new int[2];
-        Inventory inventory;
+        public Inventory inventory;
 
         public Table()
         {
@@ -33,25 +47,61 @@ namespace Kercsi
                         
                     if ((y == 0 && x == 0) || (y == 7 && x == 7) || (y == 0 && x == 7) || (y == 7 && x == 0))
                     {
-                        tileValues[y, x] = TileValue.None;
+                        tiles[y, x].value = TileValue.None;
                         continue;
                     }
 
                     if (newRand < 3)
                     {
-                        tileValues[y, x] = TileValue.Forest;
+                        tiles[y, x].value = TileValue.Forest;
                     }
                     else
                     {
-                        tileValues[y, x] = (TileValue)(newRand - 3);
+                        tiles[y, x].value = (TileValue)(newRand - 3);
                     }
                 }
             }
         }
 
+        public bool RoadBetween(int x, int y)
+        {
+            this.playerPositionIndex[0] = x;
+            this.playerPositionIndex[1] = y;
+            if (this.playerPositionIndex[0] < x)
+            {
+                if (this.tiles[y, x].roads.Left)
+                {
+                    return true;
+                }
+            }
+            if (this.playerPositionIndex[0] > x)
+            {
+                if (this.tiles[y, x].roads.Right)
+                {
+                    return true;
+                }
+            }
+            if (this.playerPositionIndex[1] < y)
+            {
+                if (this.tiles[y, x].roads.Down)
+                {
+                    return true;
+                }
+            }
+            if (this.playerPositionIndex[1] > y)
+            {
+                if (this.tiles[y, x].roads.Up)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void MovePlayer(int x, int y)
         {
-            if (this.inventory.Road != 0)
+            if (this.inventory.Road != 0 || this.RoadBetween(x, y))
             {
                 this.playerPositionIndex[0] = x;
                 this.playerPositionIndex[1] = y;
