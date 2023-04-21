@@ -30,22 +30,12 @@ namespace Kercsi
         Dice dice = new Dice();
         #endregion
 
-        public MainWindow()
-        {
-            InitializeComponent();
-            //diceOnBoard = Rt_Dice;
-        }
-
-        private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            dice.Roll(); 
-            //Return-ol egy intet   (lbl_Dice.Content = Roll())
-
         Table mainTable;
         Inventory inventory = new Inventory();
         public MainWindow()
         {
             InitializeComponent();
+            //diceOnBoard = Rt_Dice;
             stackpanel_inventory.DataContext = inventory;
             stackpanel_crafting.DataContext = inventory;
         }
@@ -58,6 +48,12 @@ namespace Kercsi
         private void btn_craftshovel_Click(object sender, RoutedEventArgs e)
         {
             inventory.CraftShovel();
+        }
+
+        private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            dice.Roll();
+            //Return-ol egy intet   (lbl_Dice.Content = Roll())
         }
     }
 }
