@@ -20,9 +20,12 @@ namespace Kercsi
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        Table mainTable;
         public MainWindow()
         {
             InitializeComponent();
+            mainTable = new();
         }
     }
 }
