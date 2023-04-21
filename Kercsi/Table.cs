@@ -16,13 +16,15 @@ namespace Kercsi
 
     internal class Table
     {
-        TileValue[,] tileValues = new TileValue[8, 8];
-        int[] playerPositionIndex = new int[2];
+        public TileValue[,] tileValues = new TileValue[8, 8];
+        public int[] playerPositionIndex = new int[2];
+        Inventory inventory;
 
         public Table()
         {
             Random rnd = new();
             playerPositionIndex = new int[2];
+            inventory = new();
             for (int y = 0; y < 8; y++)
             {
                 for (int x = 0; x < 8; x++)
@@ -44,6 +46,16 @@ namespace Kercsi
                         tileValues[y, x] = (TileValue)(newRand - 3);
                     }
                 }
+            }
+        }
+
+        public void MovePlayer(int x, int y)
+        {
+            if (this.inventory.Road != 0)
+            {
+                this.playerPositionIndex[0] = x;
+                this.playerPositionIndex[1] = y;
+                this.inventory.Road--;
             }
         }
     }
