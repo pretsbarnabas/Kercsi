@@ -58,7 +58,10 @@ namespace Kercsi
         }
         private void next(object sender, RoutedEventArgs e)
         {
-            circle_round = 0;
+            if (circle_round == 1)
+            {
+                circle_round = 0;
+            }
         }
         private void btn_tresure(object sender, RoutedEventArgs e)
         {
@@ -106,7 +109,6 @@ namespace Kercsi
                     if ((lblCoords[1] - mainTable.playerYIndex) * (lblCoords[0] - mainTable.playerXIndex) == 0)
                     {
                         mainTable.MovePlayer(lblCoords[0], lblCoords[1]);
-                            circle_round++;
                     }
                 }
             }
