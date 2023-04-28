@@ -19,35 +19,39 @@
         </Grid.ColumnDefinitions>
         <Rectangle Height="100" Fill="AntiqueWhite" Stroke="Black" Width="100" x:Name="Rt_Dice" MouseDown="Rt_Dice_MouseDown"/>
         <Grid x:Name="Resources">
-            <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" Margin="0,0,0,600" >
-                <Label x:Name="text_player" Content="Inventory Player1:" FontSize="25"></Label>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="467*"/>
+                <ColumnDefinition Width="11*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" Margin="0,0,0,600" Grid.ColumnSpan="2" >
+                <Label x:Name="text_player" Content="Inventory Player1:" FontSize="25" Foreground="#FFFBFBFB"></Label>
                 <WrapPanel>
-                    <Image Source="/img/plank.png" Height="30" Width="30"/>
+                    <Image Source="img/plank.png" Height="30" Width="30"/>
                     <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
                     <Label x:Name="wood" Content="{Binding Wood}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Image Source="/img/clayballer.png" Height="30" Width="30"/>
+                    <Image Source="img/clayballer.png" Height="30" Width="30"/>
                     <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
                     <Label x:Name="clay" Content="{Binding Clay}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Image Source="/img/Iron_Ingot.png" Height="30" Width="30"/>
+                    <Image Source="img/Iron_Ingot.png" Height="30" Width="30"/>
                     <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
                     <Label x:Name="metal" Content="{Binding Metal}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Image Source="/img/diamond.png" Height="30" Width="30"/>
+                    <Image Source="img/diamond.png" Height="30" Width="30"/>
                     <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
                     <Label x:Name="treasure" Content="{Binding Treasure}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Image Source="/img/shovel.png" Height="30" Width="30"/>
+                    <Image Source="img/shovel.png" Height="30" Width="30"/>
                     <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
                     <Label Content="{Binding Shovel}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Image Source="/img/forgatott_rail.png" Height="30" Width="30"/>
+                    <Image Source="img/forgatott_rail.png" Height="30" Width="30"/>
                     <Label Content="Road:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
                     <Label Content="{Binding Road}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
