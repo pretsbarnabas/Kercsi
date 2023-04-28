@@ -142,19 +142,22 @@ namespace Kercsi
             return isRoadBetween;
         }
 
-        private void SetRoad(int x, int y)
+        private int SetRoad(int x, int y)
         {
+            int roaddir = 0;
             if (x != currentPlayer.playerXIndex)
             {
                 if (x < currentPlayer.playerXIndex)
                 {
                     this.tiles[y, x].roads |= (int)Road.Right;
                     this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads |= (int)Road.Left;
+                    roaddir = 2;
                 }
                 else
                 {
                     this.tiles[y, x].roads |= (int)Road.Left;
                     this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads |= (int)Road.Right;
+                    roaddir = 4;
                 }
             }
             else if (y != currentPlayer.playerYIndex)
@@ -163,19 +166,23 @@ namespace Kercsi
                 {
                     this.tiles[y, x].roads |= (int)Road.Down;
                     this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads |= (int)Road.Up;
+                    roaddir = 3;
                 }
                 else
                 {
                     this.tiles[y, x].roads |= (int)Road.Up;
                     this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads |= (int)Road.Down;
+                    roaddir = 1;
                 }
             }
 
             Debug.WriteLine($"{this.tiles[y, x].roads}, {this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads}");
+            return roaddir;
         }
 
-        public void MovePlayer(int x, int y)
+        public int MovePlayer(int x, int y)
         {
+            int roaddir = 0;
             if (RoadBetween(x, y))
             {
                 this.currentPlayer.playerXIndex = x;
@@ -183,12 +190,13 @@ namespace Kercsi
             }
             else if (this.currentPlayer.inventory.Road != 0)
             {
-                SetRoad(x, y);
+                roaddir = SetRoad(x, y);
                 this.currentPlayer.playerXIndex = x;
                 this.currentPlayer.playerYIndex = y;
                 this.currentPlayer.inventory.Road--;
             }
             GameOver();
+            return roaddir;
         }
 
         public void Treasure()

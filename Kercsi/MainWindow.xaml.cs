@@ -146,11 +146,62 @@ namespace Kercsi
                 {
                     if ((lblCoords[1] - mainTable.currentPlayer.playerYIndex) * (lblCoords[0] - mainTable.currentPlayer.playerXIndex) == 0)
                     {
-                        mainTable.MovePlayer(lblCoords[0], lblCoords[1]);
+                            int[] playerCoords = { mainTable.currentPlayer.playerXIndex, mainTable.currentPlayer.playerYIndex };
+                            int roaddir = mainTable.MovePlayer(lblCoords[0], lblCoords[1]);
+                            if (roaddir == 0) return;
+                            DrawRoad(roaddir, lblCoords, playerCoords);
                     }
                 }
             }
 
+        }
+
+        private void DrawRoad(int roaddir, int[]lblCoords, int[] playerCoords)
+        {
+            Image image = new Image();
+            Image image2 = new Image();
+            image.IsHitTestVisible = false;
+            image2.IsHitTestVisible = false;
+            Grid.SetRow(image, lblCoords[1]);
+            Grid.SetColumn(image, lblCoords[0]);
+            Grid.SetRow(image2, playerCoords[1]);
+            Grid.SetColumn(image2, playerCoords[0]);
+            image.Height = 40;
+            image.Width = 40;
+            image2.Height = 40;
+            image2.Width = 40;
+            int margin = 100;
+            switch (roaddir)
+            {
+                default:
+                    break;
+                case 1:
+                    image.Source = new BitmapImage(new Uri("img/rail2.png", UriKind.Relative));
+                    image2.Source = new BitmapImage(new Uri("img/rail2.png", UriKind.Relative));
+                    image.Margin = new Thickness(0, 0, 0, margin);
+                    image2.Margin = new Thickness(0, margin, 0, 0);
+                    break;
+                case 2:
+                    image.Source = new BitmapImage(new Uri("img/rail.png", UriKind.Relative));
+                    image2.Source = new BitmapImage(new Uri("img/rail.png", UriKind.Relative));
+                    image.Margin = new Thickness(margin, 0, 0, 0);
+                    image2.Margin = new Thickness(0, 0, margin, 0);
+                    break;
+                case 3:
+                    image.Source = new BitmapImage(new Uri("img/rail2.png", UriKind.Relative));
+                    image2.Source = new BitmapImage(new Uri("img/rail2.png", UriKind.Relative));
+                    image.Margin = new Thickness(0, margin, 0, 0);
+                    image2.Margin = new Thickness(0, 0, 0, margin);
+                    break;
+                case 4:
+                    image.Source = new BitmapImage(new Uri("img/rail.png", UriKind.Relative));
+                    image2.Source = new BitmapImage(new Uri("img/rail.png", UriKind.Relative));
+                    image.Margin = new Thickness(0, 0, margin, 0);
+                    image2.Margin = new Thickness(margin, 0, 0, 0);
+                    break;
+            }
+            Gr_Table.Children.Add(image);
+            Gr_Table.Children.Add(image2);
         }
 
         public void FillGrid()
