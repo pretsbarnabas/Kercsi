@@ -104,47 +104,72 @@ namespace Kercsi
                     if (mainTable.tiles[y, x].value.ToString() == "Forest")
                     {
                         Image image = new Image();
+                        Grid grd = new();
+                        grd.Background = Brushes.Gray;
+                        image.Width = 110;
+                        image.Height = 110;
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
                         image.Source = new BitmapImage(new Uri("img/wood.png", UriKind.Relative));
-                        Grid.SetRow(image, x);
-                        Grid.SetColumn(image, y);
-                        Gr_Table.Children.Add(image);
+                        Grid.SetRow(grd, x);
+                        Grid.SetColumn(grd, y);
+                        grd.Children.Add(image);
+                        Gr_Table.Children.Add(grd);
                     }
                     else if (mainTable.tiles[y, x].value.ToString() == "Meadow")
                     {
                         Image image = new Image();
+                        Grid grd = new();
+                        grd.Background = Brushes.Gray;
+                        image.Width = 110;
+                        image.Height = 110;
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
                         image.Source = new BitmapImage(new Uri("img/ret.png", UriKind.Relative));
-                        Grid.SetRow(image, x);
-                        Grid.SetColumn(image, y);
-                        Gr_Table.Children.Add(image);
+                        Grid.SetRow(grd, x);
+                        Grid.SetColumn(grd, y);
+                        grd.Children.Add(image);
+                        Gr_Table.Children.Add(grd);
                     }
                     else if (mainTable.tiles[y, x].value.ToString() == "Mountain")
                     {
                         Image image = new Image();
+                        Grid grd = new();
+                        grd.Background = Brushes.Gray;
+                        image.Width = 110;
+                        image.Height = 110;
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
                         image.Source = new BitmapImage(new Uri("img/hegy xd.png", UriKind.Relative));
-                        Grid.SetRow(image, x);
-                        Grid.SetColumn(image, y);
-                        Gr_Table.Children.Add(image);
+                        Grid.SetRow(grd, x);
+                        Grid.SetColumn(grd, y);
+                        grd.Children.Add(image);
+                        Gr_Table.Children.Add(grd);
                     }
                     else if (mainTable.tiles[y, x].value.ToString() == "Hill")
                     {
                         Image image = new Image();
+                        Grid grd = new();
+                        grd.Background = Brushes.Gray;
+                        image.Width = 110;
+                        image.Height = 110;
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
                         image.Source = new BitmapImage(new Uri("img/claydomb.png", UriKind.Relative));
-                        Grid.SetRow(image, x);
-                        Grid.SetColumn(image, y);
-                        Gr_Table.Children.Add(image);
+                        Grid.SetRow(grd, x);
+                        Grid.SetColumn(grd, y);
+                        grd.Children.Add(image);
+                        Gr_Table.Children.Add(grd);
                     }
                     else if (mainTable.tiles[y, x].value.ToString() == "None")
                     {
                         Image image = new Image();
+                        Grid grd = new();
+                        grd.Background = Brushes.Gray;
+                        image.Width = 110;
+                        image.Height = 110;
                         image.MouseLeftButtonDown += new MouseButtonEventHandler(Move);
                         image.Source = new BitmapImage(new Uri("img/sand.jpg", UriKind.Relative));
-                        Grid.SetRow(image, x);
-                        Grid.SetColumn(image, y);
-                        Gr_Table.Children.Add(image);
+                        Grid.SetRow(grd, x);
+                        Grid.SetColumn(grd, y);
+                        grd.Children.Add(image);
+                        Gr_Table.Children.Add(grd);
                     }
                 }
             }
