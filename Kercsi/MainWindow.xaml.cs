@@ -46,6 +46,7 @@ namespace Kercsi
             img_player0.DataContext = mainTable.players[0];
             img_player1.DataContext = mainTable.players[1];
             mainTable.currentPlayer = mainTable.players[0];
+            dice_change();
             FillGrid();
         }
 
@@ -131,6 +132,14 @@ namespace Kercsi
             mainTable.currentPlayer = mainTable.players[circle_round];
             stackpanel_inventory.DataContext = mainTable.currentPlayer.inventory;
             stackpanel_crafting.DataContext = mainTable.currentPlayer.inventory;
+            if (mainTable.currentPlayer.playerIndex == 0)
+            {
+                text_player.Content = "Inventory Player1:";
+            }
+            else
+            {
+                text_player.Content = "Inventory Player2:";
+            }
         }
             //Return-ol egy intet   (lbl_Dice.Content = Roll())
 
