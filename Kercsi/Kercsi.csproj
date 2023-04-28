@@ -43,18 +43,6 @@
     <Resource Include="Fonts\italic.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Fonts\MinecraftBold-nMK1.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\MinecraftBoldItalic-1y1e.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\MinecraftItalic-R8Mo.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\MinecraftRegular-Bmg3.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Fonts\regular.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
