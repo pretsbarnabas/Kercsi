@@ -38,8 +38,7 @@ namespace Kercsi
             mainTable = new();
             stackpanel_inventory.DataContext = mainTable.inventory;
             stackpanel_crafting.DataContext = mainTable.inventory;
-            stackpanel_inventory.DataContext = mainTable.inventory;
-            stackpanel_crafting.DataContext = mainTable.inventory;
+            img_player.DataContext = mainTable;
             FillGrid();
         }
 
@@ -81,18 +80,16 @@ namespace Kercsi
             Image img = sender as Image;
             int[] lblCoords = { Grid.GetColumn(img), Grid.GetRow(img) };
 
-            if (Math.Abs(lblCoords[0] - mainTable.playerPositionIndex[0]) <= 1)
+            if (Math.Abs(lblCoords[0] - mainTable.playerXIndex) <= 1)
             {
-                if (Math.Abs(lblCoords[1] - mainTable.playerPositionIndex[1]) <= 1)
+                if (Math.Abs(lblCoords[1] - mainTable.playerYIndex) <= 1)
                 {
-                    if ((lblCoords[1] - mainTable.playerPositionIndex[1]) * (lblCoords[0] - mainTable.playerPositionIndex[0]) == 0)
+                    if ((lblCoords[1] - mainTable.playerYIndex) * (lblCoords[0] - mainTable.playerXIndex) == 0)
                     {
                         mainTable.MovePlayer(lblCoords[0], lblCoords[1]);
                     }
                 }
             }
-
-            MessageBox.Show($"x: {mainTable.playerPositionIndex[0]}, y: {mainTable.playerPositionIndex[1]}");
         }
 
         public void FillGrid()

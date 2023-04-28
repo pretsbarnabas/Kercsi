@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,16 +29,43 @@ namespace Kercsi
         public Road roads;
     }
 
-    internal class Table
+    internal class Table : INotifyPropertyChanged
     {
         public Tile[,] tiles = new Tile[8, 8];
-        public int[] playerPositionIndex = new int[2];
+        private int[] playerpositionindex = new int[2];
+
+        private int playerxindex;
+
+        public int playerXIndex
+        {
+            get { return playerxindex; }
+            set 
+            { 
+                playerxindex = value; 
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("playerXIndex"));
+            }
+        }
+        private int playeryindex;
+
+        public int playerYIndex
+        {
+            get { return playeryindex; }
+            set 
+            { 
+                playeryindex = value; 
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("playerYIndex"));
+            }
+        }
+
         public Inventory inventory;
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public Table()
         {
             Random rnd = new();
-            playerPositionIndex = new int[2];
+            playerXIndex = 0;
+            playerYIndex = 0;
             inventory = new();
             for (int y = 0; y < 8; y++)
             {
@@ -66,30 +94,30 @@ namespace Kercsi
 
         public bool RoadBetween(int x, int y)
         {
-            this.playerPositionIndex[0] = x;
-            this.playerPositionIndex[1] = y;
-            if (this.playerPositionIndex[0] < x)
+            this.playerXIndex = x;
+            this.playerYIndex = y;
+            if (this.playerXIndex < x)
             {
                 if (this.tiles[y, x].roads.Left)
                 {
                     return true;
                 }
             }
-            if (this.playerPositionIndex[0] > x)
+            if (this.playerXIndex > x)
             {
                 if (this.tiles[y, x].roads.Right)
                 {
                     return true;
                 }
             }
-            if (this.playerPositionIndex[1] < y)
+            if (this.playerYIndex < y)
             {
                 if (this.tiles[y, x].roads.Down)
                 {
                     return true;
                 }
             }
-            if (this.playerPositionIndex[1] > y)
+            if (this.playerYIndex > y)
             {
                 if (this.tiles[y, x].roads.Up)
                 {
@@ -104,8 +132,8 @@ namespace Kercsi
         {
             if (this.inventory.Road != 0 || this.RoadBetween(x, y))
             {
-                this.playerPositionIndex[0] = x;
-                this.playerPositionIndex[1] = y;
+                this.playerXIndex = x;
+                this.playerYIndex = y;
                 this.inventory.Road--;
             }
         }

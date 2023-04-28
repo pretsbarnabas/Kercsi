@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kercsi"
         mc:Ignorable="d"
-       WindowStyle="None" Height="1080" Width="1920" WindowStartupLocation="CenterScreen">
+        Height="1080" Width="1920" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ResourceDictionary Source="Styles.xaml"></ResourceDictionary>
     </Window.Resources>
@@ -66,7 +66,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Image Source="img/macsk.png" Grid.Column="0" Grid.Row="0" Panel.ZIndex="3" x:Name="img_player"></Image>
+            <Image Source="img/macsk.png" Grid.Column="{Binding playerXIndex}" Grid.Row="{Binding playerYIndex}" Panel.ZIndex="3" x:Name="img_player"></Image>
         </Grid>
         <Grid Grid.Column="2" x:Name="Gr_crafting">
             <Grid.RowDefinitions>
