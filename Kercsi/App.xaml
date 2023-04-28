@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:Kercsi"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="CustomFont">
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Minecraft"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

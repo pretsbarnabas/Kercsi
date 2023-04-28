@@ -9,6 +9,14 @@
 
   <ItemGroup>
     <None Remove="buttonbg.png" />
+    <None Remove="Fonts\bold.otf" />
+    <None Remove="Fonts\bolditalic.otf" />
+    <None Remove="Fonts\italic.otf" />
+    <None Remove="Fonts\MinecraftBold-nMK1.otf" />
+    <None Remove="Fonts\MinecraftBoldItalic-1y1e.otf" />
+    <None Remove="Fonts\MinecraftItalic-R8Mo.otf" />
+    <None Remove="Fonts\MinecraftRegular-Bmg3.otf" />
+    <None Remove="Fonts\regular.otf" />
     <None Remove="img\buttonbg.png" />
     <None Remove="img\clayball.png" />
     <None Remove="img\claydomb.png" />
@@ -26,6 +34,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\bold.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\bolditalic.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\italic.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\MinecraftBold-nMK1.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\MinecraftBoldItalic-1y1e.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\MinecraftItalic-R8Mo.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\MinecraftRegular-Bmg3.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\regular.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\buttonbg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>

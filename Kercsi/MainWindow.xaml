@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kercsi"
+        xmlns:Fonts="clr-namespace:System.Windows.Media;assembly=PresentationCore"
         mc:Ignorable="d"
         Height="1070" Width="1910" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
@@ -19,28 +20,28 @@
         <Grid x:Name="Resources">
             <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" Margin="0,0,0,600" >
                 <WrapPanel>
-                    <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label x:Name="wood" Content="{Binding Wood}"></Label>
+                    <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}"/>
+                    <Label x:Name="wood" Content="{Binding Wood}" Style="{StaticResource CustomFont}"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label x:Name="clay" Content="{Binding Clay}"></Label>
+                    <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}"/>
+                    <Label x:Name="clay" Content="{Binding Clay}" Style="{StaticResource CustomFont}"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label x:Name="metal" Content="{Binding Metal}"></Label>
+                    <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}"/>
+                    <Label x:Name="metal" Content="{Binding Metal}" Style="{StaticResource CustomFont}"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label x:Name="treasure" Content="{Binding Treasure}"></Label>
+                    <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}"/>
+                    <Label x:Name="treasure" Content="{Binding Treasure}" Style="{StaticResource CustomFont}"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="{Binding Shovel}"></Label>
+                    <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}"/>
+                    <Label Content="{Binding Shovel}" Style="{StaticResource CustomFont}"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Label Content="Road:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="{Binding Road}"></Label>
+                    <Label Content="Road:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}"/>
+                    <Label Content="{Binding Road}" Style="{StaticResource CustomFont}"></Label>
                 </WrapPanel>
             </StackPanel>
         </Grid>
@@ -91,18 +92,18 @@
                 </StackPanel.Resources>
                 <StackPanel Orientation="horizontal">
                     <Image Source="img/rail.png" Height="120"></Image>
-                    <Button IsEnabled="{Binding CraftRoadIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftroad" Content="Craft Rail" BorderBrush="Transparent"  Margin="20,0,0,0" HorizontalAlignment="Left" Height="120" Width="350" VerticalAlignment="Top" Click="btn_craftroad_Click"/>
+                    <Button IsEnabled="{Binding CraftRoadIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftroad" Content="Craft Rail" BorderBrush="Transparent"  Margin="20,0,0,0" HorizontalAlignment="Left" Height="120" Width="350" VerticalAlignment="Top" Click="btn_craftroad_Click" Style="{StaticResource CustomFont}"/>
                 </StackPanel>
                 <StackPanel Orientation="horizontal">
                     <Image Source="img/shovel.png" Height="120"></Image>
-                    <Button IsEnabled="{Binding CraftShovelIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftshovel" Content="Craft Shovel" Margin="20,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_craftshovel_Click"/>
+                    <Button IsEnabled="{Binding CraftShovelIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftshovel" Content="Craft Shovel" Margin="20,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_craftshovel_Click" Style="{StaticResource CustomFont}"/>
                 </StackPanel>
                 <StackPanel Orientation="horizontal">
                     <Image Source="img/diamond.png" Height="120" Width="120"></Image>
-                    <Button x:Name="tresure" Content="Find Treasure" Margin="20,0,0,0" Background="{StaticResource ButtonBackground}"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_tresure"/>
+                    <Button x:Name="tresure" Content="Find Treasure" Margin="20,0,0,0" Background="{StaticResource ButtonBackground}"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_tresure" Style="{StaticResource CustomFont}"/>
                 </StackPanel>
                 <StackPanel Orientation="horizontal">
-                    <Button x:Name="btn_next" Content="Next"  HorizontalAlignment="Left" Background="{StaticResource ButtonBackground}" VerticalAlignment="Top" Height="120" Width="350" Click="next"/>
+                    <Button x:Name="btn_next" Content="Next" Background="{StaticResource ButtonBackground}" Height="120" Width="350" Click="next" Style="{StaticResource CustomFont}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
