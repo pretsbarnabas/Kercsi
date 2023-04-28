@@ -186,6 +186,7 @@ namespace Kercsi
                 this.currentPlayer.playerYIndex = y;
                 this.currentPlayer.inventory.Road--;
             }
+            GameOver();
         }
 
         public void Treasure()
@@ -206,6 +207,14 @@ namespace Kercsi
             else
             {
                 MessageBox.Show("Not a Meadow", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void GameOver()
+        {
+            if (playerxindex == 7 && playeryindex == 7)
+            {
+                MessageBox.Show("You win!", "Game over", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
     }
