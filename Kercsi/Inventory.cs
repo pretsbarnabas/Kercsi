@@ -8,7 +8,7 @@ using System.Windows.Threading;
 
 namespace Kercsi
 {
-    internal class Inventory : INotifyPropertyChanged
+    public class Inventory : INotifyPropertyChanged
     {
         private int wood;
         public int Wood

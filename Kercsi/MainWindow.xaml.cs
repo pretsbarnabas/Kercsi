@@ -41,28 +41,24 @@ namespace Kercsi
             InitializeComponent();
             diceOnBoard = Rt_Dice;
             mainTable = new();
-            stackpanel_inventory.DataContext = mainTable.inventory;
-            stackpanel_crafting.DataContext = mainTable.inventory;
-            img_player.DataContext = mainTable;
+            stackpanel_inventory.DataContext = mainTable.players[0].inventory;
+            stackpanel_crafting.DataContext = mainTable.players[0].inventory;
+            img_player0.DataContext = mainTable.players[0];
+            img_player1.DataContext = mainTable.players[1];
+            mainTable.currentPlayer = mainTable.players[0];
             FillGrid();
         }
 
         private void btn_craftroad_Click(object sender, RoutedEventArgs e)
         {
-            mainTable.inventory.CraftRoad();
+            mainTable.currentPlayer.inventory.CraftRoad();
         }
 
         private void btn_craftshovel_Click(object sender, RoutedEventArgs e)
         {
-            mainTable.inventory.CraftShovel();
+            mainTable.currentPlayer.inventory.CraftShovel();
         }
-        private void next(object sender, RoutedEventArgs e)
-        {
-            if (circle_round == 1)
-            {
-                circle_round = 0;
-            }
-        }
+
         private void btn_tresure(object sender, RoutedEventArgs e)
         {
             mainTable.Treasure();
@@ -70,49 +66,47 @@ namespace Kercsi
 
         private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (circle_round == 0)
+
+            string tile = dice.Roll();
+            switch (tile)
             {
-                string tile = dice.Roll();
-                switch (tile)
-                {
-                    case ("Mountain"):
-                        mainTable.inventory.Metal++;
-                        break;
-                    case ("Hill"):
-                        mainTable.inventory.Clay++;
-                        break;
-                    case ("Meadow"):
-                        break;
-                    case ("Sand"):
-                        break;
-                    case ("Forest"):
-                        mainTable.inventory.Wood++;
-                        break;
-                }
-                circle_round++;
+                case ("Mountain"):
+                    mainTable.currentPlayer.inventory.Metal++;
+                    break;
+                case ("Hill"):
+                    mainTable.currentPlayer.inventory.Clay++;
+                    break;
+                case ("Meadow"):
+                    break;
+                case ("Sand"):
+                    break;
+                case ("Forest"):
+                    mainTable.currentPlayer.inventory.Wood++;
+                    break;
             }
+            circle_round = Math.Abs(circle_round - 1);
+            mainTable.currentPlayer = mainTable.players[circle_round];
+            stackpanel_inventory.DataContext = mainTable.currentPlayer.inventory;
+            stackpanel_crafting.DataContext = mainTable.currentPlayer.inventory;
         }
             //Return-ol egy intet   (lbl_Dice.Content = Roll())
 
 
         private void Move(object sender, MouseButtonEventArgs e)
         {
-            if (circle_round == 1)
-            {
-                Image img = sender as Image;
-                int[] lblCoords = { Grid.GetColumn(img), Grid.GetRow(img) };
+            Image img = sender as Image;
+            int[] lblCoords = { Grid.GetColumn(img), Grid.GetRow(img) };
 
-            if (Math.Abs(lblCoords[0] - mainTable.playerXIndex) <= 1)
+            if (Math.Abs(lblCoords[0] - mainTable.currentPlayer.playerXIndex) <= 1)
             {
-                if (Math.Abs(lblCoords[1] - mainTable.playerYIndex) <= 1)
+                if (Math.Abs(lblCoords[1] - mainTable.currentPlayer.playerYIndex) <= 1)
                 {
-                    if ((lblCoords[1] - mainTable.playerYIndex) * (lblCoords[0] - mainTable.playerXIndex) == 0)
+                    if ((lblCoords[1] - mainTable.currentPlayer.playerYIndex) * (lblCoords[0] - mainTable.currentPlayer.playerXIndex) == 0)
                     {
                         mainTable.MovePlayer(lblCoords[0], lblCoords[1]);
                     }
                 }
             }
-        }
 
         }
 

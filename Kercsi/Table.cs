@@ -32,19 +32,16 @@ namespace Kercsi
         public UInt16 roads;
     }
 
-    internal class Table : INotifyPropertyChanged
+    public class Player : INotifyPropertyChanged
     {
-        public Tile[,] tiles = new Tile[8, 8];
-        private int[] playerpositionindex = new int[2];
-
         private int playerxindex;
 
         public int playerXIndex
         {
             get { return playerxindex; }
-            set 
-            { 
-                playerxindex = value; 
+            set
+            {
+                playerxindex = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("playerXIndex"));
             }
         }
@@ -53,9 +50,9 @@ namespace Kercsi
         public int playerYIndex
         {
             get { return playeryindex; }
-            set 
-            { 
-                playeryindex = value; 
+            set
+            {
+                playeryindex = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("playerYIndex"));
             }
         }
@@ -64,12 +61,31 @@ namespace Kercsi
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        public Player(int i)
+        {
+            playerXIndex = i * 7;
+            playerYIndex = 0;
+            inventory = new();
+        }
+    }
+
+    internal class Table
+    {
+        public Tile[,] tiles = new Tile[8, 8];
+
+        public Player[] players = new Player[2];
+        public Player currentPlayer;
+
         public Table()
         {
             Random rnd = new();
-            playerXIndex = 0;
-            playerYIndex = 0;
-            inventory = new();
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i] = new Player(i);
+            }
+
+            currentPlayer = players[0];
+
             for (int y = 0; y < 8; y++)
             {
                 for (int x = 0; x < 8; x++)
@@ -98,9 +114,9 @@ namespace Kercsi
         private bool RoadBetween(int x, int y)
         {
             bool isRoadBetween = false;
-            if (x != playerXIndex)
+            if (x != currentPlayer.playerXIndex)
             {
-                if (x < playerXIndex)
+                if (x < currentPlayer.playerXIndex)
                 {
                     isRoadBetween = (this.tiles[y, x].roads & (int)Road.Right) != 0;
                 }
@@ -109,9 +125,9 @@ namespace Kercsi
                     isRoadBetween = (this.tiles[y, x].roads & (int)Road.Left) != 0;
                 }
             }
-            else if (y != playerYIndex)
+            else if (y != currentPlayer.playerYIndex)
             {
-                if (y < playerYIndex)
+                if (y < currentPlayer.playerYIndex)
                 {
                     isRoadBetween = (this.tiles[y, x].roads & (int)Road.Down) != 0;
                 }
@@ -126,61 +142,61 @@ namespace Kercsi
 
         private void SetRoad(int x, int y)
         {
-            if (x != playerXIndex)
+            if (x != currentPlayer.playerXIndex)
             {
-                if (x < playerXIndex)
+                if (x < currentPlayer.playerXIndex)
                 {
                     this.tiles[y, x].roads |= (int)Road.Right;
-                    this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Left;
+                    this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads |= (int)Road.Left;
                 }
                 else
                 {
                     this.tiles[y, x].roads |= (int)Road.Left;
-                    this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Right;
+                    this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads |= (int)Road.Right;
                 }
             }
-            else if (y != playerYIndex)
+            else if (y != currentPlayer.playerYIndex)
             {
-                if (y < playerYIndex)
+                if (y < currentPlayer.playerYIndex)
                 {
                     this.tiles[y, x].roads |= (int)Road.Down;
-                    this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Up;
+                    this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads |= (int)Road.Up;
                 }
                 else
                 {
                     this.tiles[y, x].roads |= (int)Road.Up;
-                    this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Down;
+                    this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads |= (int)Road.Down;
                 }
             }
 
-            Debug.WriteLine($"{this.tiles[y, x].roads}, {this.tiles[playerYIndex, playerXIndex].roads}");
+            Debug.WriteLine($"{this.tiles[y, x].roads}, {this.tiles[currentPlayer.playerYIndex, currentPlayer.playerXIndex].roads}");
         }
 
         public void MovePlayer(int x, int y)
         {
             if (RoadBetween(x, y))
             {
-                this.playerXIndex = x;
-                this.playerYIndex = y;
+                this.currentPlayer.playerXIndex = x;
+                this.currentPlayer.playerYIndex = y;
             }
-            else if (this.inventory.Road != 0)
+            else if (this.currentPlayer.inventory.Road != 0)
             {
                 SetRoad(x, y);
-                this.playerXIndex = x;
-                this.playerYIndex = y;
-                this.inventory.Road--;
+                this.currentPlayer.playerXIndex = x;
+                this.currentPlayer.playerYIndex = y;
+                this.currentPlayer.inventory.Road--;
             }
         }
 
         public void Treasure()
         {
-            var tile = tiles[playerXIndex, playerYIndex].value.ToString();
-            if (tiles[playerXIndex, playerYIndex].value.ToString() == "Meadow")
+            var tile = tiles[currentPlayer.playerXIndex, currentPlayer.playerYIndex].value.ToString();
+            if (tiles[currentPlayer.playerXIndex, currentPlayer.playerYIndex].value.ToString() == "Meadow")
             {
-                if (inventory.Shovel >= 1)
+                if (currentPlayer.inventory.Shovel >= 1)
                 {
-                    inventory.Shovel--;
-                    inventory.Treasure++;
+                    currentPlayer.inventory.Shovel--;
+                    currentPlayer.inventory.Treasure++;
                 }
                 else
                 {
