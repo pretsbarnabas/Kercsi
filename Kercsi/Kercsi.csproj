@@ -10,14 +10,22 @@
   <ItemGroup>
     <None Remove="1.png" />
     <None Remove="buttonbg.png" />
+    <None Remove="fonts\bold.otf" />
+    <None Remove="fonts\bolditalic.otf" />
+    <None Remove="fonts\italic.otf" />
+    <None Remove="fonts\regular.otf" />
+    <None Remove="img\arrow next.png" />
     <None Remove="img\buttonbg.png" />
     <None Remove="img\clayball.png" />
+    <None Remove="img\clayballer.png" />
     <None Remove="img\claydomb.png" />
     <None Remove="img\diamond.png" />
+    <None Remove="img\forgatott_rail.png" />
     <None Remove="img\hegy xd.png" />
     <None Remove="img\Iron_Ingot.png" />
     <None Remove="img\macsk.png" />
     <None Remove="img\masik_cic_mic.jpg" />
+    <None Remove="img\plank.png" />
     <None Remove="img\rail.png" />
     <None Remove="img\rail2.png" />
     <None Remove="img\ret.png" />
@@ -30,10 +38,25 @@
 
   <ItemGroup>
     <Resource Include="1.png" />
+    <Resource Include="fonts\bold.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\bolditalic.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\italic.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fonts\regular.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\arrow next.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="img\buttonbg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\clayball.png">
+    <Resource Include="img\clayballer.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\claydomb.png">
@@ -41,6 +64,9 @@
     </Resource>
     <Resource Include="img\diamond.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\forgatott_rail.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\hegy xd.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -53,6 +79,9 @@
     </Resource>
     <Resource Include="img\masik_cic_mic.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\plank.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\rail.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
