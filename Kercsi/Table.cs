@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Kercsi
 {
@@ -169,6 +172,16 @@ namespace Kercsi
                 this.playerXIndex = x;
                 this.playerYIndex = y;
                 this.inventory.Road--;
+                UIElement element = MainWindow.Grd_Table.Children.Cast<UIElement>().First(e => Grid.GetRow(e) == y + 1 && Grid.GetColumn(e) == x + 1);
+                Grid grid = null;
+                if (element.GetType() == typeof(Grid))
+                {
+                    grid = (Grid)element;
+                }
+                if (grid != null && grid.Background == Brushes.Gray && tiles[x, y].value != TileValue.None)
+                {
+                    grid.Background = Brushes.Blue;
+                }
             }
         }
 
