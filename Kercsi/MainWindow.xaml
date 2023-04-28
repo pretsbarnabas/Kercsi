@@ -97,6 +97,9 @@
                     <Image Source="img/shovel.png" Height="120"></Image>
                     <Button IsEnabled="{Binding CraftShovelIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftshovel" Content="Craft Shovel" Margin="20,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_craftshovel_Click"/>
                 </StackPanel>
+                <StackPanel Orientation="horizontal">
+                    <Button x:Name="btn_next" Content="Craft Shovel"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="next"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>

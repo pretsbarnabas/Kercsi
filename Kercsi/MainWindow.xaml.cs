@@ -20,6 +20,10 @@ namespace Kercsi
     /// </summary>
     public partial class MainWindow : Window
     {
+        //0 dob vagy kincset keres
+        //1 lép
+        //2 kincset keres vagy tovább adja a kört
+        int circle_round = 0;
         #region Dice
         private static Rectangle diceOnBoard;
         public static Rectangle DiceOnBoard
@@ -52,25 +56,33 @@ namespace Kercsi
         {
             mainTable.inventory.CraftShovel();
         }
+        private void next(object sender, RoutedEventArgs e)
+        {
+            circle_round = 0;
+        }
 
         private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            string tile = dice.Roll();
-            switch (tile)
+            if (circle_round == 0)
             {
-                case("Mountain"):
-                    metal.Content = int.Parse(metal.Content.ToString()) + 1;
-                    break;
-                case ("Hill"):
-                    clay.Content = int.Parse(clay.Content.ToString()) + 1;
-                    break;
-                case ("Meadow"):
-                    break;
-                case ("Sand"):
-                    break;
-                case ("Forest"):
-                    wood.Content = int.Parse(wood.Content.ToString()) + 1;
-                    break;
+                string tile = dice.Roll();
+                switch (tile)
+                {
+                    case ("Mountain"):
+                        metal.Content = int.Parse(metal.Content.ToString()) + 1;
+                        break;
+                    case ("Hill"):
+                        clay.Content = int.Parse(clay.Content.ToString()) + 1;
+                        break;
+                    case ("Meadow"):
+                        break;
+                    case ("Sand"):
+                        break;
+                    case ("Forest"):
+                        wood.Content = int.Parse(wood.Content.ToString()) + 1;
+                        break;
+                }
+                circle_round++;
             }
         }
             //Return-ol egy intet   (lbl_Dice.Content = Roll())
@@ -78,21 +90,26 @@ namespace Kercsi
 
         private void Move(object sender, MouseButtonEventArgs e)
         {
-            Image img = sender as Image;
-            int[] lblCoords = { Grid.GetColumn(img), Grid.GetRow(img) };
-
-            if (Math.Abs(lblCoords[0] - mainTable.playerPositionIndex[0]) <= 1)
+            if (circle_round == 1)
             {
-                if (Math.Abs(lblCoords[1] - mainTable.playerPositionIndex[1]) <= 1)
+                Image img = sender as Image;
+                int[] lblCoords = { Grid.GetColumn(img), Grid.GetRow(img) };
+
+                if (Math.Abs(lblCoords[0] - mainTable.playerPositionIndex[0]) <= 1)
                 {
-                    if ((lblCoords[1] - mainTable.playerPositionIndex[1]) * (lblCoords[0] - mainTable.playerPositionIndex[0]) == 0)
+                    if (Math.Abs(lblCoords[1] - mainTable.playerPositionIndex[1]) <= 1)
                     {
-                        mainTable.MovePlayer(lblCoords[0], lblCoords[1]);
+                        if ((lblCoords[1] - mainTable.playerPositionIndex[1]) * (lblCoords[0] - mainTable.playerPositionIndex[0]) == 0)
+                        {
+                            mainTable.MovePlayer(lblCoords[0], lblCoords[1]);
+                            circle_round++;
+                        }
                     }
                 }
+
+                MessageBox.Show($"x: {mainTable.playerPositionIndex[0]}, y: {mainTable.playerPositionIndex[1]}");
             }
 
-            MessageBox.Show($"x: {mainTable.playerPositionIndex[0]}, y: {mainTable.playerPositionIndex[1]}");
         }
 
         public void FillGrid()
