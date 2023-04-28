@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="11*"/>
             </Grid.ColumnDefinitions>
             <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" Margin="0,0,0,600" Grid.ColumnSpan="2" >
-                <Label x:Name="text_player" Content="Inventory Player1:" FontSize="25" Foreground="#FFFBFBFB"></Label>
+                <Label x:Name="text_player" Content="Inventory Player1:" FontSize="25" Foreground="#FFFFFDD0" Style="{StaticResource CustomFont}"></Label>
                 <WrapPanel>
                     <Image Source="img/plank.png" Height="30" Width="30"/>
                     <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
