@@ -4,13 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kercsi"
+        xmlns:Fonts="clr-namespace:System.Windows.Media;assembly=PresentationCore"
         mc:Ignorable="d"
         Title="Kercsi"
         Height="1070" Width="1910" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <ResourceDictionary Source="Styles.xaml"></ResourceDictionary>
     </Window.Resources>
-    <Grid>
+    <Grid Background="#FF151A25">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -21,33 +22,34 @@
             <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" Margin="0,0,0,600" >
                 <Label x:Name="text_player" Content="Inventory Player1:" FontSize="25"></Label>
                 <WrapPanel>
-                    <Rectangle x:Name="img_wood" Height="20" Stroke="Black" Width="20"/>
-                    <Rectangle x:Name="img_wood2" Height="20" Stroke="Black" Width="20"/>
-                    <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label x:Name="wood" Content="{Binding Wood}"></Label>
+                    <Image Source="/img/plank.png" Height="30" Width="30"/>
+                    <Label Content="Wood:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
+                    <Label x:Name="wood" Content="{Binding Wood}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Rectangle x:Name="img_clay" Height="20" Stroke="Black" Width="20"/>
-                    <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label x:Name="clay" Content="{Binding Clay}"></Label>
+                    <Image Source="/img/clayballer.png" Height="30" Width="30"/>
+                    <Label Content="Clay:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
+                    <Label x:Name="clay" Content="{Binding Clay}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Rectangle x:Name="img_metal" Height="20" Stroke="Black" Width="20"/>
-                    <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label x:Name="metal" Content="{Binding Metal}"></Label>
+                    <Image Source="/img/Iron_Ingot.png" Height="30" Width="30"/>
+                    <Label Content="Metal:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
+                    <Label x:Name="metal" Content="{Binding Metal}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-
-                    <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label x:Name="treasure" Content="{Binding Treasure}"></Label>
+                    <Image Source="/img/diamond.png" Height="30" Width="30"/>
+                    <Label Content="Treasure:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
+                    <Label x:Name="treasure" Content="{Binding Treasure}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="{Binding Shovel}"></Label>
+                    <Image Source="/img/shovel.png" Height="30" Width="30"/>
+                    <Label Content="Shovel:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
+                    <Label Content="{Binding Shovel}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
                 <WrapPanel>
-                    <Label Content="Road:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Label Content="{Binding Road}"></Label>
+                    <Image Source="/img/forgatott_rail.png" Height="30" Width="30"/>
+                    <Label Content="Road:" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"/>
+                    <Label Content="{Binding Road}" Style="{StaticResource CustomFont}" FontSize="20" Foreground="#FFFFFDD0"></Label>
                 </WrapPanel>
             </StackPanel>
         </Grid>
@@ -99,15 +101,15 @@
                 </StackPanel.Resources>
                 <StackPanel Orientation="horizontal">
                     <Image Source="img/rail.png" Height="120"></Image>
-                    <Button IsEnabled="{Binding CraftRoadIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftroad" Content="Craft Rail" BorderBrush="Transparent"  Margin="20,0,0,0" HorizontalAlignment="Left" Height="120" Width="350" VerticalAlignment="Top" Click="btn_craftroad_Click"/>
+                    <Button IsEnabled="{Binding CraftRoadIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftroad" Content="Craft Rail" BorderBrush="Transparent"  Margin="20,0,0,0" HorizontalAlignment="Left" Height="120" Width="350" VerticalAlignment="Top" Click="btn_craftroad_Click" Style="{StaticResource CustomFont}" FontSize="25"/>
                 </StackPanel>
                 <StackPanel Orientation="horizontal">
                     <Image Source="img/shovel.png" Height="120"></Image>
-                    <Button IsEnabled="{Binding CraftShovelIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftshovel" Content="Craft Shovel" Margin="20,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_craftshovel_Click"/>
+                    <Button IsEnabled="{Binding CraftShovelIsActive}" Background="{StaticResource ButtonBackground}" x:Name="btn_craftshovel" Content="Craft Shovel" Margin="20,0,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_craftshovel_Click" Style="{StaticResource CustomFont}" FontSize="25"/>
                 </StackPanel>
                 <StackPanel Orientation="horizontal">
                     <Image Source="img/diamond.png" Height="120" Width="120"></Image>
-                    <Button x:Name="tresure" Content="Find Treasure" Margin="20,0,0,0" Background="{StaticResource ButtonBackground}"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_tresure"/>
+                    <Button x:Name="tresure" Content="Find Treasure" Margin="20,0,0,0" Background="{StaticResource ButtonBackground}"  HorizontalAlignment="Left" VerticalAlignment="Top" Height="120" Width="350" Click="btn_tresure" Style="{StaticResource CustomFont}" FontSize="25"/>
                 </StackPanel>
 
             </StackPanel>
