@@ -60,6 +60,7 @@ namespace Kercsi
             bitmap.EndInit();
             ImageSource imageSource = bitmap;
             ib.ImageSource = imageSource;
+            img_wood.Fill = ib;
 
             imagePath = $"Images/Dice/{dice.Forest[1]}.png";
             ib = new();
@@ -69,6 +70,8 @@ namespace Kercsi
             bitmap.EndInit();
             imageSource = bitmap;
             ib.ImageSource = imageSource;
+            img_wood2.Fill = ib;
+
 
             imagePath = $"Images/Dice/{dice.Hill}.png";
             ib = new();
@@ -78,6 +81,8 @@ namespace Kercsi
             bitmap.EndInit();
             imageSource = bitmap;
             ib.ImageSource = imageSource;
+            img_clay.Fill = ib;
+
 
             imagePath = $"Images/Dice/{dice.Mountain}.png";
             ib = new();
@@ -87,6 +92,7 @@ namespace Kercsi
             bitmap.EndInit();
             imageSource = bitmap;
             ib.ImageSource = imageSource;
+            img_metal.Fill = ib;
         }
 
         private void btn_craftroad_Click(object sender, RoutedEventArgs e)
