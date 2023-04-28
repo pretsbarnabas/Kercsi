@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,18 +18,18 @@ namespace Kercsi
         None,
     }
 
-    public struct Road
+    public enum Road
     {
-        public bool Left;
-        public bool Right;
-        public bool Up;
-        public bool Down;
+        Left = 0b1,
+        Right = 0b10,
+        Up = 0b100,
+        Down = 0b1000,
     }
 
     public class Tile
     {
         public TileValue value;
-        public Road roads;
+        public UInt16 roads;
     }
 
     internal class Table : INotifyPropertyChanged
@@ -94,46 +95,77 @@ namespace Kercsi
             }
         }
 
-        public bool RoadBetween(int x, int y)
+        private bool RoadBetween(int x, int y)
         {
-            this.playerXIndex = x;
-            this.playerYIndex = y;
-            if (this.playerXIndex < x)
+            bool isRoadBetween = false;
+            if (x != playerXIndex)
             {
-                if (this.tiles[y, x].roads.Left)
+                if (x < playerXIndex)
                 {
-                    return true;
+                    isRoadBetween = (this.tiles[y, x].roads & (int)Road.Right) != 0;
+                }
+                else
+                {
+                    isRoadBetween = (this.tiles[y, x].roads & (int)Road.Left) != 0;
                 }
             }
-            if (this.playerXIndex > x)
+            else if (y != playerYIndex)
             {
-                if (this.tiles[y, x].roads.Right)
+                if (y < playerYIndex)
                 {
-                    return true;
+                    isRoadBetween = (this.tiles[y, x].roads & (int)Road.Down) != 0;
                 }
-            }
-            if (this.playerYIndex < y)
-            {
-                if (this.tiles[y, x].roads.Down)
+                else
                 {
-                    return true;
-                }
-            }
-            if (this.playerYIndex > y)
-            {
-                if (this.tiles[y, x].roads.Up)
-                {
-                    return true;
+                    isRoadBetween = (this.tiles[y, x].roads & (int)Road.Up) != 0;
                 }
             }
 
-            return false;
+            return isRoadBetween;
+        }
+
+        private void SetRoad(int x, int y)
+        {
+            if (x != playerXIndex)
+            {
+                if (x < playerXIndex)
+                {
+                    this.tiles[y, x].roads |= (int)Road.Right;
+                    this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Left;
+                }
+                else
+                {
+                    this.tiles[y, x].roads |= (int)Road.Left;
+                    this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Right;
+                }
+            }
+            else if (y != playerYIndex)
+            {
+                if (y < playerYIndex)
+                {
+                    this.tiles[y, x].roads |= (int)Road.Down;
+                    this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Up;
+                }
+                else
+                {
+                    this.tiles[y, x].roads |= (int)Road.Up;
+                    this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Down;
+                }
+            }
+
+            Debug.WriteLine($"{this.tiles[y, x].roads}, {this.tiles[playerYIndex, playerXIndex].roads}");
         }
 
         public void MovePlayer(int x, int y)
         {
-            if (this.inventory.Road != 0 || this.RoadBetween(x, y))
+            if (RoadBetween(x, y))
             {
+                this.playerXIndex = x;
+                this.playerYIndex = y;
+            }
+            else if (this.inventory.Road != 0)
+            {
+                SetRoad(x, y);
                 this.playerXIndex = x;
                 this.playerYIndex = y;
                 this.inventory.Road--;
