@@ -12,18 +12,18 @@
     <None Remove="Fonts\bold.otf" />
     <None Remove="Fonts\bolditalic.otf" />
     <None Remove="Fonts\italic.otf" />
-    <None Remove="Fonts\MinecraftBold-nMK1.otf" />
-    <None Remove="Fonts\MinecraftBoldItalic-1y1e.otf" />
-    <None Remove="Fonts\MinecraftItalic-R8Mo.otf" />
-    <None Remove="Fonts\MinecraftRegular-Bmg3.otf" />
     <None Remove="Fonts\regular.otf" />
+    <None Remove="img\arrow next.png" />
     <None Remove="img\buttonbg.png" />
     <None Remove="img\clayball.png" />
+    <None Remove="img\clayballer.png" />
     <None Remove="img\claydomb.png" />
     <None Remove="img\diamond.png" />
+    <None Remove="img\forgatott_rail.png" />
     <None Remove="img\hegy xd.png" />
     <None Remove="img\Iron_Ingot.png" />
     <None Remove="img\macsk.png" />
+    <None Remove="img\plank.png" />
     <None Remove="img\rail.png" />
     <None Remove="img\ret.png" />
     <None Remove="img\sand.jpg" />
@@ -43,32 +43,26 @@
     <Resource Include="Fonts\italic.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Fonts\MinecraftBold-nMK1.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\MinecraftBoldItalic-1y1e.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\MinecraftItalic-R8Mo.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Fonts\MinecraftRegular-Bmg3.otf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Fonts\regular.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\arrow next.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\buttonbg.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="img\clayball.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Resource Include="img\clayballer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\claydomb.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\diamond.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\forgatott_rail.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\hegy xd.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -78,6 +72,9 @@
     </Resource>
     <Resource Include="img\macsk.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\plank.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\rail.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
