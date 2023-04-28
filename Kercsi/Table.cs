@@ -34,6 +34,7 @@ namespace Kercsi
 
     public class Player : INotifyPropertyChanged
     {
+        public int playerIndex;
         private int playerxindex;
 
         public int playerXIndex
@@ -65,6 +66,7 @@ namespace Kercsi
         {
             playerXIndex = i * 7;
             playerYIndex = 0;
+            playerIndex = i;
             inventory = new();
         }
     }
@@ -212,7 +214,7 @@ namespace Kercsi
 
         public void GameOver()
         {
-            if (playerxindex == 7 && playeryindex == 7)
+            if (this.currentPlayer.playerXIndex == Math.Abs(this.currentPlayer.playerIndex - 1) * 7 && this.currentPlayer.playerYIndex == 7)
             {
                 MessageBox.Show("You win!", "Game over", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
