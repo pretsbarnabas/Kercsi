@@ -32,19 +32,19 @@ namespace Kercsi
             ib.ImageSource = imageSource;
             MainWindow.DiceOnBoard.Fill = ib;
 
-            if (rand == Mountain)
+            if (rand == Mountain + 1)
             {
                 return "Mountain";
             }
-            else if (rand == Hill)
+            else if (rand == Hill + 1)
             {
                 return "Hill";
             }
-            else if (rand == Mead)
+            else if (rand == Mead + 1 )
             {
                 return "Meadow";
             }
-            else if (rand == Sand)
+            else if (rand == Sand + 1)
             {
                 return "Sand";
             }
