@@ -22,6 +22,7 @@ namespace Kercsi
     {
         #region Dice
         private static Rectangle diceOnBoard;
+        public static Grid Grd_Table;
         public static Rectangle DiceOnBoard
         {
             get { return diceOnBoard; }
@@ -35,6 +36,7 @@ namespace Kercsi
         {
             InitializeComponent();
             diceOnBoard = Rt_Dice;
+            Grd_Table = Gr_Table;
             mainTable = new();
             stackpanel_inventory.DataContext = mainTable.inventory;
             stackpanel_crafting.DataContext = mainTable.inventory;
