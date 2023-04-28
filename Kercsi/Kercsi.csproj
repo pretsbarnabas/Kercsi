@@ -17,6 +17,7 @@
     <None Remove="img\Iron_Ingot.png" />
     <None Remove="img\macsk.png" />
     <None Remove="img\rail.png" />
+    <None Remove="img\rail2.png" />
     <None Remove="img\ret.png" />
     <None Remove="img\sand.jpg" />
     <None Remove="img\shovel.png" />
@@ -48,6 +49,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\rail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\rail2.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\ret.png">

@@ -124,19 +124,22 @@ namespace Kercsi
             return isRoadBetween;
         }
 
-        private void SetRoad(int x, int y)
+        private int SetRoad(int x, int y)
         {
+            int roaddir = 0;
             if (x != playerXIndex)
             {
                 if (x < playerXIndex)
                 {
                     this.tiles[y, x].roads |= (int)Road.Right;
                     this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Left;
+                    roaddir = 2;
                 }
                 else
                 {
                     this.tiles[y, x].roads |= (int)Road.Left;
                     this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Right;
+                    roaddir = 4;
                 }
             }
             else if (y != playerYIndex)
@@ -145,19 +148,23 @@ namespace Kercsi
                 {
                     this.tiles[y, x].roads |= (int)Road.Down;
                     this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Up;
+                    roaddir = 3;
                 }
                 else
                 {
                     this.tiles[y, x].roads |= (int)Road.Up;
                     this.tiles[playerYIndex, playerXIndex].roads |= (int)Road.Down;
+                    roaddir = 1;
                 }
             }
 
             Debug.WriteLine($"{this.tiles[y, x].roads}, {this.tiles[playerYIndex, playerXIndex].roads}");
+            return roaddir;
         }
 
-        public void MovePlayer(int x, int y)
+        public int MovePlayer(int x, int y)
         {
+            int roaddir = 0;
             if (RoadBetween(x, y))
             {
                 this.playerXIndex = x;
@@ -165,11 +172,12 @@ namespace Kercsi
             }
             else if (this.inventory.Road != 0)
             {
-                SetRoad(x, y);
+                roaddir = SetRoad(x, y);
                 this.playerXIndex = x;
                 this.playerYIndex = y;
                 this.inventory.Road--;
             }
+            return roaddir;
         }
 
         public void Treasure()
