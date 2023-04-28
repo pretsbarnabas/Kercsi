@@ -18,6 +18,7 @@
         <Rectangle Height="100" Fill="AntiqueWhite" Stroke="Black" Width="100" x:Name="Rt_Dice" MouseDown="Rt_Dice_MouseDown"/>
         <Grid x:Name="Resources">
             <StackPanel x:Name="stackpanel_inventory" Grid.Column="0" Margin="0,0,0,600" >
+                <Label x:Name="text_player" Content="Inventory Player1:" FontSize="25"></Label>
                 <WrapPanel>
                     <Rectangle x:Name="img_wood" Height="20" Stroke="Black" Width="20"/>
                     <Rectangle x:Name="img_wood2" Height="20" Stroke="Black" Width="20"/>
