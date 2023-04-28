@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Kercsi
 {
@@ -58,7 +60,7 @@ namespace Kercsi
                     }
                     else
                     {
-                        tiles[y, x].value = (TileValue)(newRand - 3);
+                        tiles[y, x].value = (TileValue)(newRand - 2);
                     }
                 }
             }
@@ -107,6 +109,27 @@ namespace Kercsi
                 this.playerPositionIndex[0] = x;
                 this.playerPositionIndex[1] = y;
                 this.inventory.Road--;
+            }
+        }
+
+        public void Treasure()
+        {
+            var tile = tiles[playerPositionIndex[0], playerPositionIndex[1]].value.ToString();
+            if (tiles[playerPositionIndex[0], playerPositionIndex[1]].value.ToString() == "Meadow")
+            {
+                if (inventory.Shovel >= 1)
+                {
+                    inventory.Shovel--;
+                    inventory.Treasure++;
+                }
+                else
+                {
+                    MessageBox.Show("No shovels??", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Not a Meadow", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

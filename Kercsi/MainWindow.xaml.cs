@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,6 +52,10 @@ namespace Kercsi
         private void btn_craftshovel_Click(object sender, RoutedEventArgs e)
         {
             mainTable.inventory.CraftShovel();
+        }
+        private void btn_tresure(object sender, RoutedEventArgs e)
+        {
+            mainTable.Treasure();
         }
 
         private void Rt_Dice_MouseDown(object sender, MouseButtonEventArgs e)
