@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kercsi"
         mc:Ignorable="d"
+        Title="Kercsi"
         Height="1070" Width="1910" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <ResourceDictionary Source="Styles.xaml"></ResourceDictionary>
