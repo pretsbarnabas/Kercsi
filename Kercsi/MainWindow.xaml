@@ -72,7 +72,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Image Source="img/macsk.png" Grid.Column="{Binding playerXIndex}" Grid.Row="{Binding playerYIndex}" Panel.ZIndex="3" x:Name="img_player0"></Image>
-            <Image Source="img/masik_cic_mic.jpg" Grid.Column="{Binding playerXIndex}" Grid.Row="{Binding playerYIndex}" Panel.ZIndex="3" x:Name="img_player1"></Image>
+            <Image Height="100" Source="img/masik_cic_mic.jpg" Grid.Column="{Binding playerXIndex}" Grid.Row="{Binding playerYIndex}" Panel.ZIndex="3" x:Name="img_player1"></Image>
         </Grid>
         <Grid Grid.Column="2" x:Name="Gr_crafting">
             <Grid.RowDefinitions>

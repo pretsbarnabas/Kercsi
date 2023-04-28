@@ -17,6 +17,7 @@
     <None Remove="img\hegy xd.png" />
     <None Remove="img\Iron_Ingot.png" />
     <None Remove="img\macsk.png" />
+    <None Remove="img\masik_cic_mic.jpg" />
     <None Remove="img\rail.png" />
     <None Remove="img\rail2.png" />
     <None Remove="img\ret.png" />
@@ -48,6 +49,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\macsk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\masik_cic_mic.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="img\rail.png">
@@ -87,9 +91,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Images\Dice\6.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="img\masik_cic_mic.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
