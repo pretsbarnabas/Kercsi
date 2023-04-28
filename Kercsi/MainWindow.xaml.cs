@@ -76,17 +76,17 @@ namespace Kercsi
                 switch (tile)
                 {
                     case ("Mountain"):
-                        metal.Content = int.Parse(metal.Content.ToString()) + 1;
+                        mainTable.inventory.Metal++;
                         break;
                     case ("Hill"):
-                        clay.Content = int.Parse(clay.Content.ToString()) + 1;
+                        mainTable.inventory.Clay++;
                         break;
                     case ("Meadow"):
                         break;
                     case ("Sand"):
                         break;
                     case ("Forest"):
-                        wood.Content = int.Parse(wood.Content.ToString()) + 1;
+                        mainTable.inventory.Wood++;
                         break;
                 }
                 circle_round++;

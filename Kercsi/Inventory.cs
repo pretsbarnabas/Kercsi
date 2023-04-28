@@ -45,7 +45,6 @@ namespace Kercsi
                 if (clay == 0)
                 {
                     CraftRoadIsActive = false;
-                    CraftShovelIsActive = false;
                 }
                 else if (wood > 0)
                 {
