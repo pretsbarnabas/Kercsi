@@ -44,7 +44,51 @@ namespace Kercsi
             stackpanel_inventory.DataContext = mainTable.inventory;
             stackpanel_crafting.DataContext = mainTable.inventory;
             img_player.DataContext = mainTable;
+            dice_change();
             FillGrid();
+        }
+
+        private void dice_change()
+        {
+            string imagePath = $"Images/Dice/{dice.Forest[0]}.png";
+            ImageBrush ib = new();
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath, UriKind.Relative);
+            bitmap.EndInit();
+            ImageSource imageSource = bitmap;
+            ib.ImageSource = imageSource;
+            img_wood.Fill = ib;
+
+            imagePath = $"Images/Dice/{dice.Forest[1]}.png";
+            ib = new();
+            bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath, UriKind.Relative);
+            bitmap.EndInit();
+            imageSource = bitmap;
+            ib.ImageSource = imageSource;
+            img_wood2.Fill = ib;
+
+            imagePath = $"Images/Dice/{dice.Hill}.png";
+            ib = new();
+            bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath, UriKind.Relative);
+            bitmap.EndInit();
+            imageSource = bitmap;
+            ib.ImageSource = imageSource;
+            img_clay.Fill = ib;
+
+            imagePath = $"Images/Dice/{dice.Mountain}.png";
+            ib = new();
+            bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(imagePath, UriKind.Relative);
+            bitmap.EndInit();
+            imageSource = bitmap;
+            ib.ImageSource = imageSource;
+            img_metal.Fill = ib;
         }
 
         private void btn_craftroad_Click(object sender, RoutedEventArgs e)

@@ -21,7 +21,7 @@ namespace Kercsi
 
         public string Roll()
         {
-            int rand = random.Next(6) + 1;
+            int rand = random.Next(1, 7);
             string imagePath = $"Images/Dice/{rand}.png";
             ImageBrush ib = new();
             BitmapImage bitmap = new BitmapImage();
@@ -32,19 +32,19 @@ namespace Kercsi
             ib.ImageSource = imageSource;
             MainWindow.DiceOnBoard.Fill = ib;
 
-            if (rand == Mountain + 1)
+            if (rand == Mountain)
             {
                 return "Mountain";
             }
-            else if (rand == Hill + 1)
+            else if (rand == Hill)
             {
                 return "Hill";
             }
-            else if (rand == Mead + 1 )
+            else if (rand == Mead)
             {
                 return "Meadow";
             }
-            else if (rand == Sand + 1)
+            else if (rand == Sand)
             {
                 return "Sand";
             }
@@ -58,12 +58,15 @@ namespace Kercsi
         public Dice()
         {
             int[] values = { 1, 2, 3, 4, 5, 6 };
-            int i = 0;
-            while (i < values.Length)
+            Random rnd = new Random();
+            for (int i = 0; i < values.Length; i++)
             {
-                values[i] = random.Next(values.Length);
-                i++;
+                int randomIndex = rnd.Next(values.Length);
+                int temp = values[i];
+                values[i] = values[randomIndex];
+                values[randomIndex] = temp;
             }
+
             Forest[0] = values[0];
             Forest[1] = values[1];
             Mountain = values[2];
